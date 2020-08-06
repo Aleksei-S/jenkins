@@ -1,0 +1,3 @@
+stage('Setup Build Node'){
+    echo 'stupid jenkins'
+}
