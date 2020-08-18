@@ -17,21 +17,21 @@ node {
 	    def SFDC_HOST = env.SFDC_HOST_DH
 	    def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
 	    def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
-	    println 'KEY IS' 
-	    println JWT_KEY_CRED_ID
+	    echo 'KEY IS' 
+	    echo JWT_KEY_CRED_ID
 
 	}
 
-withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
+//withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
 		// -------------------------------------------------------------------------
 		// Authenticate to Salesforce using the server key.
 		// -------------------------------------------------------------------------
 
 		stage('Authorize to Salesforce') {
-			rc = command "${toolbelt}/sfdx force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
-		    if (rc != 0) {
-			error 'Salesforce org authorization failed.'
-		    }
+		//	rc = command "${toolbelt}/sfdx force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
+		//    if (rc != 0) {
+		//	error 'Salesforce org authorization failed.'
+		 //   }
 		}
 
 
@@ -40,10 +40,10 @@ withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'serve
 		// -------------------------------------------------------------------------
 
 		stage('Deploy and Run Tests') {
-		    rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
-		    if (rc != 0) {
-			error 'Salesforce deploy and test run failed.'
-		    }
+		   // rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
+		   // if (rc != 0) {
+		//	error 'Salesforce deploy and test run failed.'
+		   // }
 		}
 
 
@@ -57,5 +57,5 @@ withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'serve
 		//        error 'Salesforce deploy failed.'
 		//    }
 		//}
-	    }
+	//    }
 }
