@@ -20,7 +20,7 @@ node {
 	    echo 'HUB_ORG' 
 	    echo HUB_ORG
 	    echo "${env.CONNECTED_APP_CONSUMER_KEY_DH}"
-	    echo "${env.JWT_CRED_ID_DH}"
+	    echo "${env.JAVA_HOME}"
 
 	    echo 'env.SFDC_HOST_DH' 
 	    echo env.SFDC_HOST_DH
