@@ -26,7 +26,7 @@ node {
 	    echo env.SFDC_HOST_DH
 	    echo 'KEY IS' 
 	    echo JWT_KEY_CRED_ID
-
+		sh 'printenv'
 	}
 
 //withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
