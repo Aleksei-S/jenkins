@@ -5,8 +5,6 @@ node {
        stage('checkout source') {
                 // when running in multi-branch job, one must issue this command
                 // checkout scm
-	        echo "${env.getEnvironment()}"
-
             }
 
 	stage('Setup Build Node'){
@@ -21,6 +19,9 @@ node {
 	    def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
 	    echo 'HUB_ORG' 
 	    echo HUB_ORG
+	    echo ${env.CONNECTED_APP_CONSUMER_KEY_DH}
+	    echo ${env.JWT_CRED_ID_DH}
+
 	    echo 'env.SFDC_HOST_DH' 
 	    echo env.SFDC_HOST_DH
 	    echo 'KEY IS' 
