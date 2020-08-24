@@ -1,0 +1,53 @@
+ <target name="cleanProfiles">
+
+    <echo>Remove standard Salesforce settings from the profiles</echo>
+    <echo>=====================================================</echo>
+
+    <replaceregexp match="\s*&lt;userPermissions&gt;\s*&lt;enabled&gt;(true|false)&lt;\/enabled&gt;\s*&lt;name&gt;\w*&lt;\/name&gt;\s*&lt;\/userPermissions&gt;"
+                   replace=""
+                   flags="gs">
+      <fileset dir="${src.dir}" includes="**/*.profile"/>
+    </replaceregexp>
+
+    <replaceregexp match="\s*&lt;fieldPermissions&gt;\s*&lt;editable&gt;(true|false)&lt;\/editable&gt;\s*&lt;field&gt;.*&lt;\/field&gt;\s*&lt;readable&gt;(true|false)&lt;\/readable&gt;\s*&lt;\/fieldPermissions&gt;"
+                   replace=""
+                   flags="gs">
+      <fileset dir="${src.dir}" includes="**/*.profile"/>
+    </replaceregexp>
+
+    <replaceregexp match="\s*&lt;objectPermissions&gt;\s*&lt;allowCreate&gt;(true|false)&lt;\/allowCreate&gt;\s*&lt;allowDelete&gt;(true|false)&lt;\/allowDelete&gt;\s*&lt;allowEdit&gt;(true|false)&lt;\/allowEdit&gt;\s*&lt;allowRead&gt;(true|false)&lt;\/allowRead&gt;\s*&lt;modifyAllRecords&gt;(true|false)&lt;\/modifyAllRecords&gt;\s*&lt;object&gt;\w*&lt;\/object&gt;\s*&lt;viewAllRecords&gt;(true|false)&lt;\/viewAllRecords&gt;\s*&lt;\/objectPermissions&gt;"
+                   replace=""
+                   flags="gs">
+      <fileset dir="${src.dir}" includes="**/*.profile"/>
+    </replaceregexp>
+
+  </target>
+
+\s*<userPermissions>\s*<enabled>(true|false)<\/enabled>\s*<name>\w*<\/name>\s*<\/userPermissions>
+\s*&lt;userPermissions&gt;\s*&lt;enabled&gt;(true|false)&lt;\/enabled&gt;\s*&lt;name&gt;\w*&lt;\/name&gt;\s*&lt;\/userPermissions&gt;
+
+\s*<fieldPermissions>\s*<editable>(true|false)<\/editable>\s*<field>.*<\/field>\s*<readable>(true|false)<\/readable>\s*<\/fieldPermissions>
+\s*&lt;fieldPermissions&gt;\s*&lt;editable&gt;(true|false)&lt;\/editable&gt;\s*&lt;field&gt;.*&lt;\/field&gt;\s*&lt;readable&gt;(true|false)&lt;\/readable&gt;\s*&lt;\/fieldPermissions&gt;
+
+\s*<objectPermissions>\s*<allowCreate>(true|false)<\/allowCreate>\s*<allowDelete>(true|false)<\/allowDelete>\s*<allowEdit>(true|false)<\/allowEdit>\s*<allowRead>(true|false)<\/allowRead>\s*<modifyAllRecords>(true|false)<\/modifyAllRecords>\s*<object>\w*<\/object>\s*<viewAllRecords>(true|false)<\/viewAllRecords>\s*<\/objectPermissions>
+\s*&lt;objectPermissions&gt;\s*&lt;allowCreate&gt;(true|false)&lt;\/allowCreate&gt;\s*&lt;allowDelete&gt;(true|false)&lt;\/allowDelete&gt;\s*&lt;allowEdit&gt;(true|false)&lt;\/allowEdit&gt;\s*&lt;allowRead&gt;(true|false)&lt;\/allowRead&gt;\s*&lt;modifyAllRecords&gt;(true|false)&lt;\/modifyAllRecords&gt;\s*&lt;object&gt;\w*&lt;\/object&gt;\s*&lt;viewAllRecords&gt;(true|false)&lt;\/viewAllRecords&gt;\s*&lt;\/objectPermissions&gt;
+
+
+<userPermissions>
+  <enabled>true</enabled>
+  <name>ApexRestServices</name>
+</userPermissions>
+<fieldPermissions>
+  <editable>false</editable>
+  <field>Account.AccountNumber</field>
+  <readable>false</readable>
+</fieldPermissions>
+<objectPermissions>
+  <allowCreate>true</allowCreate>
+  <allowDelete>true</allowDelete>
+  <allowEdit>true</allowEdit>
+  <allowRead>true</allowRead>
+  <modifyAllRecords>false</modifyAllRecords>
+  <object>National_Holiday__c</object>
+  <viewAllRecords>false</viewAllRecords>
+</objectPermissions>
