@@ -1,0 +1,83 @@
+<project name="Challenges deploy" default="" basedir="." xmlns:sf="antlib:com.salesforce">
+    <property file="build.properties"/>
+    <property environment="env"/>
+
+    <!-- Shows deploying code &amp; running tests for code in directory -->
+    <condition property="sf.username"   value=""> <not> <isset property="sf.username"/>     </not> </condition>
+    <condition property="sf.password"   value=""> <not> <isset property="sf.password"/>     </not> </condition>
+    <condition property="sf.sessionId"  value=""> <not> <isset property="sf.sessionId"/>    </not> </condition>
+
+    <target name="Validate test org 1" >
+        <sf:deploy
+                username         ="${sf.username}"
+                password         ="${sf.password}"
+                serverurl        ="${sf.serverurl}"
+                deployRoot       ="/Users/alekseymz/WORK/GIT/TCM/src/"
+                checkOnly        ="true"
+                testLevel        ="NoTestRun"
+                pollWaitMillis   ="10000"
+        />
+    </target>
+    <target name="Deploy test org" >
+
+        <sf:deploy
+                username         ="${sf.username}"
+                password         ="${sf.password}"
+                serverurl        ="${sf.serverurl}"
+                deployRoot       ="/Users/alekseymz/WORK/GIT/TCM/src/"
+                checkOnly        ="false"
+                testLevel        ="NoTestRun"
+                pollWaitMillis   ="10000"
+        />
+    </target>
+
+    <!--<target name="MY OWN COMMIT VALIDATE" >-->
+        <!--<sf:deploy-->
+                <!--username         ="${sf.username}"-->
+                <!--password         ="${sf.password}"-->
+                <!--serverurl        ="${sf.serverurl}"-->
+                <!--deployRoot       ="/Users/alekseymz/IdeaProjects/aug/src/"-->
+                <!--checkOnly        ="true"-->
+                <!--testLevel        ="NoTestRun"-->
+                <!--pollWaitMillis   ="10000"-->
+        <!--/>-->
+    <!--</target>-->
+
+    <!--<target name="MY OWN COMMIT DEPLOY" >-->
+        <!--<sf:deploy-->
+                <!--username         ="${sf.username}"-->
+                <!--password         ="${sf.password}"-->
+                <!--serverurl        ="${sf.serverurl}"-->
+                <!--deployRoot       ="C:\Users\User\IdeaProjects\august21\src\"-->
+                <!--checkOnly        ="false"-->
+                <!--testLevel        ="NoTestRun"-->
+                <!--pollWaitMillis   ="10000"-->
+        <!--/>-->
+    <!--</target>-->
+
+    <!--<target name="retrieveUnpackaged">-->
+        <!--&lt;!&ndash; <mkdir dir="C:\Users\User\Desktop\aura\"/> &ndash;&gt;-->
+        <!--<sf:retrieve-->
+                <!--username="${sf.username}"-->
+                <!--password="${sf.password}"-->
+                <!--sessionId="${sf.sessionId}"-->
+                <!--serverurl="${sf.serverurl}"-->
+                <!--retrieveTarget="C:\Users\User\Desktop\aura\"-->
+                <!--unpackaged="C:\Users\User\Desktop\TCM_project\gitTCM\src\package.xml"-->
+        <!--/>-->
+    <!--</target>-->
+
+
+    <!--<target name="Validate test scratch" >-->
+    <!--<sf:deploy-->
+    <!--username         ="test-aqxskbprcnnd@example.com"-->
+    <!--password         ="Ozu-]$r00T"-->
+    <!--serverurl        ="https://cs80.salesforce.com"-->
+    <!--deployRoot       ="D:\Idea\TCMgitClone\src\"-->
+    <!--checkOnly        ="true"-->
+    <!--testLevel        ="NoTestRun"-->
+    <!--pollWaitMillis   ="10000"-->
+    <!--/>-->
+    <!--</target>-->
+
+</project>
