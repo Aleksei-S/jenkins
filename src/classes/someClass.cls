@@ -3,7 +3,7 @@ public with sharing class someClass {
         return true;
     }
 
-//    public static Boolean fff(Boolean a) {
-//        return a;
-//    }
+    public static Boolean fff(Boolean a) {
+        return a;
+    }
 }
